@@ -1,0 +1,12 @@
+@import "~/primeng/resources/themes/omega/theme.css";
+@import "~font-awesome/scss/font-awesome";
+@import "~/primeng/resources/primeng.css";
+
+html, body{
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+span.active {
+  background-color: gray;
+}

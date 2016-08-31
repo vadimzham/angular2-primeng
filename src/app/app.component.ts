@@ -5,6 +5,9 @@ import { Component, ViewEncapsulation } from '@angular/core';
 
 import { AppState } from './app.service';
 
+import {AccordionModule} from 'primeng/primeng';     //accordion and accordion tab
+import {MenuItem} from 'primeng/primeng';            //api
+
 /*
  * App Component
  * Top Level Component
@@ -13,7 +16,7 @@ import { AppState } from './app.service';
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
   styleUrls: [
-    './app.style.css'
+    './app.style.scss'
   ],
   template: `
     <nav>
@@ -45,7 +48,7 @@ import { AppState } from './app.service';
     <main>
       <router-outlet></router-outlet>
     </main>
-
+    <input type="text" pInputText/>
     <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
 
     <footer>

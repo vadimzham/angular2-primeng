@@ -142,7 +142,7 @@ module.exports = {
        */
       {
         test: /\.json$/,
-        loader: 'json-loader'
+        loader: 'json'
       },
 
       /*
@@ -152,9 +152,16 @@ module.exports = {
        */
       {
         test: /\.css$/,
-        loaders: ['to-string-loader', 'css-loader']
+        loaders: ['to-string', 'css']
       },
-
+      {
+        test: /\.(sass|scss)$/,
+        loaders: ['css-to-string', 'css?sourceMap', 'resolve-url', 'sass?sourceMap']
+      },
+      {
+        test: /\.styl$/,
+        loaders: ['css-to-string', 'css?sourceMap', 'resolve-url', 'stylus']
+      },
       /* Raw loader support for *.html
        * Returns file content as string
        *
@@ -162,15 +169,26 @@ module.exports = {
        */
       {
         test: /\.html$/,
-        loader: 'raw-loader',
+        loader: 'raw',
         exclude: [helpers.root('src/index.html')]
       },
-
+      {
+        test: /\.pug$/,
+        loader: 'pug-html'
+      },
       /* File loader for supporting images, for example, in CSS files.
       */
       {
         test: /\.(jpg|png|gif)$/,
         loader: 'file'
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "url?limit=10000&minetype=application/font-woff"
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "file"
       }
     ]
 
